@@ -9,8 +9,8 @@ namespace DataAccess
         {
             new Member{ MemberID = 1, MemberName = "NEIHT", Email = "admin@fstore.com",
                         Password = "admin@@", City = "Ha Noi", Country = "Viet Nam"},
-            new Member{ MemberID = 2, MemberName = "Thien", Email = "user1@fstore.com",
-                        Password = "user@@", City = "Ha Noi", Country = "Viet Nam"}
+            new Member{ MemberID = 2, MemberName = "Thien", Email = "a@gmail.com",
+                        Password = "123", City = "Ha Noi", Country = "Viet Nam"}
         };
 
         //Using Singleton Pattern

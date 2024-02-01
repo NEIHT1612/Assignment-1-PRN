@@ -29,21 +29,28 @@ namespace MyStoreWinApp
             txtCity.Text = member.City.ToString();
             txtCountry.Text = member.Country.ToString();
         }
-        public IMemberRepository MemberRepository { get; set; }
-        public bool InsertOrUpdate { get; set; }
+        public IMemberRepository MemberRepository = new MemberRepository();
+        public bool InsertOrUpdate = true;
         public Member MemberInfo { get; set; }
 
         private void frmMemberDetails_Load(object sender, EventArgs e)
         {
             txtMemberId.Enabled = !InsertOrUpdate;
-            if (InsertOrUpdate == true)
+            try
             {
-                txtMemberId.Text = MemberInfo.MemberID.ToString();
-                txtMemberName.Text = MemberInfo.MemberName.ToString();
-                txtEmail.Text = MemberInfo.Email.ToString();
-                txtPassword.Text = MemberInfo.Password.ToString();
-                txtCity.Text = MemberInfo.City.ToString();
-                txtCountry.Text = MemberInfo.Country.ToString();
+                if (InsertOrUpdate == true)
+                {
+                    txtMemberId.Text = MemberInfo.MemberID.ToString();
+                    txtMemberName.Text = MemberInfo.MemberName;
+                    txtEmail.Text = MemberInfo.Email;
+                    txtPassword.Text = MemberInfo.Password;
+                    txtCity.Text = MemberInfo.City;
+                    txtCountry.Text = MemberInfo.Country;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update");
             }
         }
 
@@ -60,8 +67,7 @@ namespace MyStoreWinApp
                     City = txtCity.Text,
                     Country = txtCountry.Text
                 };
-
-                if(InsertOrUpdate == false)
+                if (InsertOrUpdate == false)
                 {
                     MemberRepository.InsertMember(Member);
                     this.Hide();
@@ -73,6 +79,7 @@ namespace MyStoreWinApp
                 {
                     MemberRepository.UpdateMember(Member);
                     this.Hide();
+                    MessageBox.Show("Update succesfully");
                     frmMemberManagement frmMemberManagement = new frmMemberManagement();
                     frmMemberManagement.ShowDialog();
                 }
