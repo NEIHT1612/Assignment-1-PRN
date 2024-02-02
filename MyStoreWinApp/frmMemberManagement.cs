@@ -148,9 +148,8 @@ namespace MyStoreWinApp
 
         private void btnSeach_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtSearch.Text);
             string name = txtSearch.Text;
-            List<Member> list = memberRepository.GetMemberByIdAndName(id, name);
+            List<Member> list = memberRepository.GetMemberByName(name);
             dgvMember.DataSource = list;
         }
 

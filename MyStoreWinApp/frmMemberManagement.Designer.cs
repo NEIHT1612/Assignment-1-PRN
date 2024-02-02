@@ -191,7 +191,7 @@
             btnSeach.Name = "btnSeach";
             btnSeach.Size = new Size(158, 29);
             btnSeach.TabIndex = 16;
-            btnSeach.Text = "SeachByNameAndId";
+            btnSeach.Text = "SeachByName";
             btnSeach.UseVisualStyleBackColor = true;
             btnSeach.Click += btnSeach_Click;
             // 

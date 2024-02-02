@@ -13,7 +13,7 @@ namespace DataAccess.Repository
         void InsertMember(Member member);
         void DeleteMember(int memberID);
         void UpdateMember(Member member);
-        List<Member> GetMemberByIdAndName(int memberID, string name);
+        List<Member> GetMemberByName(string name);
         List<Member> GetMemberByCityAndCountry(string city, string country);
         List<Member> GetMemberDescending();
         Member GetMemberByEmail(string email);

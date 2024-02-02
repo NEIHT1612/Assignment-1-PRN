@@ -15,7 +15,7 @@ namespace DataAccess.Repository
 
         public Member GetMemberByID(int memberID) => MemberDAO.Instance.GetMemberByID(memberID);
 
-        public List<Member> GetMemberByIdAndName(int memberID, string name) => MemberDAO.Instance.SearchByIdAndName(memberID, name);
+        public List<Member> GetMemberByName(string name) => MemberDAO.Instance.SearchByName(name);
 
         public List<Member> GetMemberDescending() => MemberDAO.Instance.SortedMemberDescending();
 

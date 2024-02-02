@@ -10,7 +10,11 @@ namespace DataAccess
             new Member{ MemberID = 1, MemberName = "NEIHT", Email = "admin@fstore.com",
                         Password = "admin@@", City = "Ha Noi", Country = "Viet Nam"},
             new Member{ MemberID = 2, MemberName = "Thien", Email = "a@gmail.com",
-                        Password = "123", City = "Ha Noi", Country = "Viet Nam"}
+                        Password = "123", City = "Ha Noi", Country = "Viet Nam"},
+            new Member{ MemberID = 3, MemberName = "Quang", Email = "b@gmail.com",
+                        Password = "123456", City = "Hue", Country = "Viet Nam"},
+            new Member{ MemberID = 4, MemberName = "Minh", Email = "c@gmail.com",
+                        Password = "1234", City = "Vinh", Country = "Viet Nam"}
         };
 
         //Using Singleton Pattern
@@ -84,9 +88,9 @@ namespace DataAccess
             }
         }
 
-        public List<Member> SearchByIdAndName(int MemberID, string MemberName)
+        public List<Member> SearchByName(string MemberName)
         {
-            List<Member> Lmember = MemberList.Where(m => m.MemberID == MemberID || m.MemberName.Contains(MemberName, StringComparison.OrdinalIgnoreCase)).ToList();
+            List<Member> Lmember = MemberList.Where(m => m.MemberName.Contains(MemberName, StringComparison.OrdinalIgnoreCase)).ToList();
             return Lmember;
         }
     
